@@ -1,0 +1,36 @@
+body {
+    width: 70vw;
+
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+#page-success {
+    position: absolute;
+    
+    background: var(--color-primary);
+}
+
+#page-success #container {
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    position: relative;
+    margin: 0;
+    color: var(--color-text-in-primary);
+
+}
+
+.success-background{
+    width: 100%;
+}
+
+.success-message {
+    position: absolute;
+    display: flex;
+
+    align-items: center;
+    text-align: center;
+
+}
