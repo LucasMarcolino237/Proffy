@@ -1,6 +1,8 @@
 const Database = require('./database/db')
 
 const { subjects, weekday, getSubject, convertHours2Minutes } = require('./utils/format')
+const { render } = require('nunjucks')
+const { query } = require('express')
 
 function pageLanding(req, res) {
 
@@ -87,6 +89,7 @@ async function saveClasses(req, res) {
         queryString += "&weekday=" + data.weekday[0]
         queryString += "&time=" + data.time_from[0]
 
+
         return res.redirect("/study" + queryString)
 
     } catch (error) {
@@ -95,9 +98,11 @@ async function saveClasses(req, res) {
 
     }
     
-
-
-    
 }
 
-module.exports = { pageLanding, pageStudy, pageGiveClasses, saveClasses }
+function pageSuccess(req, res) {
+
+    return res.render("success.html")
+}
+
+module.exports = { pageLanding, pageStudy, pageGiveClasses, saveClasses, pageSuccess }
