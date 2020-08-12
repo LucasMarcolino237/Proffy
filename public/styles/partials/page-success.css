@@ -1,6 +1,4 @@
-body {
-    width: 70vw;
-
+* { 
     align-items: center;
     display: flex;
     justify-content: center;
@@ -8,29 +6,39 @@ body {
 #page-success {
     position: absolute;
     
+    background-image: url('/public/images/success-background.svg');
     background: var(--color-primary);
 }
 
 #page-success #container {
-    display: flex;
-    align-items: center;
-    text-align: center;
+    
 
-    position: relative;
-    margin: 0;
+    position: absolute;
     color: var(--color-text-in-primary);
 
 }
 
-.success-background{
-    width: 100%;
+#page-success #container > img{
+    /* width: 100vw;
+    height: 80vh; */
+    
+}
+
+.success {
+    /* width: 60%;
+    height: 50%; */
+
+    position: absolute;
+}
+
+.success img {
+    margin: 3.8rem auto;
 }
 
 .success-message {
     position: absolute;
-    display: flex;
 
-    align-items: center;
-    text-align: center;
-
+    display: block;
+    
 }
+
