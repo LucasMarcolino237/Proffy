@@ -90,7 +90,9 @@ async function saveClasses(req, res) {
         queryString += "&time=" + data.time_from[0]
 
 
-        return res.redirect("/study" + queryString)
+
+
+        return res.redirect("/success" + queryString)
 
     } catch (error) {
 
@@ -101,8 +103,17 @@ async function saveClasses(req, res) {
 }
 
 function pageSuccess(req, res) {
+    
+    res.render("success.html")
+    const filters = req.query
+    const redirectStudy = () => {
+        setTimeout(() => {
+            res.render('study.html', { subjects, filters, weekday })
+        }, 2 * 1000)
+    }
 
-    return res.render("success.html")
+    return redirectStudy()
 }
+
 
 module.exports = { pageLanding, pageStudy, pageGiveClasses, saveClasses, pageSuccess }
