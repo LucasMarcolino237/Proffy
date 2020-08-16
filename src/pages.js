@@ -55,6 +55,15 @@ function pageGiveClasses(req, res) {
     return res.render("give-classes.html", { subjects, weekday })
 }
 
+function pageSuccess(req, res) {
+
+    res.render("success.html")
+    // return setTimeout(() => {
+    //     res.redirect("/study" + queryString)
+    // }, 2 * 1000);
+    
+}
+
 async function saveClasses(req, res) {
     const createProffy = require('./database/createProffy')
     const data = req.body
@@ -89,10 +98,8 @@ async function saveClasses(req, res) {
         queryString += "&weekday=" + data.weekday[0]
         queryString += "&time=" + data.time_from[0]
 
-
-
-
-        return res.redirect("/success" + queryString)
+        
+        return res.redirect("/study" + queryString)
 
     } catch (error) {
 
@@ -102,18 +109,8 @@ async function saveClasses(req, res) {
     
 }
 
-function pageSuccess(req, res) {
-    
-    res.render("success.html")
-    const filters = req.query
-    const redirectStudy = () => {
-        setTimeout(() => {
-            res.render('study.html', { subjects, filters, weekday })
-        }, 2 * 1000)
-    }
 
-    return redirectStudy()
-}
+
 
 
 module.exports = { pageLanding, pageStudy, pageGiveClasses, saveClasses, pageSuccess }
