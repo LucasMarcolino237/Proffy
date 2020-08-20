@@ -22,6 +22,13 @@
     padding: 0 2.4rem;
 }
 
+#page-give-classes fieldset .remove-button {
+    display: flex;
+
+    align-items: center;
+    margin-top: 2.4rem;
+}
+
 #page-give-classes fieldset legend {
     font: 700 2.4rem Archivo;
     color: var(--color-text-title);
@@ -37,7 +44,8 @@
     border-bottom: 1px solid var(--color-line-in-white);
 }
 
-#page-give-classes fieldset legend button {
+#page-give-classes fieldset legend button,
+#page-give-classes fieldset button {
     background: none;
     border: 0;
 
@@ -50,7 +58,8 @@
     transition: 0.2s;
 }
 
-#page-give-classes fieldset legend button:hover {
+#page-give-classes fieldset legend button:hover,
+#page-give-classes fieldset button:hover {
     color: var(--color-primary-dark);
 }
 
@@ -132,7 +141,7 @@
 
     .schedule-item {
         display: grid;
-        grid-template-columns: 2fr 1fr 1fr;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
         column-gap: 1.6rem;
     }
 
