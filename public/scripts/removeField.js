@@ -1,7 +1,7 @@
 document.querySelector("#remove-time").addEventListener('click', removeField)
 
 function removeField() {
-    const fieldContainer = document.querySelector('.schedule-item')
+    var fieldContainers = document.getElementById('schedule-items').childNodes
 
-    fieldContainer.parentNode.removeChild(fieldContainer)
+    document.getElementById('schedule-items').removeChild(fieldContainers[1])
 }
