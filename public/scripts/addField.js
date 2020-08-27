@@ -1,23 +1,14 @@
 document.querySelector("#add-time").addEventListener('click', cloneField)
+document.querySelector("#add-time").addEventListener('click', getLastSchedule)
+
+lastSchedule().querySelector('select').addEventListener('change', selectValue)
 
 function cloneField() {
 
-    let last = setLast()
-    const selectElement = last.querySelector('select')
+    if (lastSchedule().querySelector('select').value !== '') {
 
-    let newFieldContainer = last.cloneNode(true)
-    const fields = newFieldContainer.querySelectorAll('input')
-
-    let validiValue = ''
-    const selectValue = () => {
-
-        console.log(selectValue.target.value)
-        validiValue = selectValue.target.value
-    }
-    
-    selectElement.addEventListener('change', selectValue)
-
-    if (validiValue) {
+        let newFieldContainer = lastSchedule().cloneNode(true)
+        const fields = newFieldContainer.querySelectorAll('input')
 
         fields.forEach(function(field) {
 
@@ -25,20 +16,35 @@ function cloneField() {
                 return newFieldContainer = ''
             }
             field.value = ''
+            
         });
 
         document.querySelector('#schedule-items').appendChild(newFieldContainer)
         
     }
 
-    last = setLast()
+    lastSchedule().querySelector('select').value = ''
 }
 
-function setLast() {
+function lastSchedule() {
 
     const fieldContainers = document.querySelectorAll('.schedule-item')
     const last = fieldContainers[(fieldContainers.length) - 1]
 
     return last
+}
+
+function selectValue(setValue) {
+
+    console.log(setValue.target.value)
+    lastSchedule().querySelector('select').value = setValue.target.value
+
+    lastSchedule().querySelector('select').removeEventListener('change', selectValue)
+
+}
+
+function getLastSchedule() {
+
+    lastSchedule().querySelector('select').addEventListener('change', selectValue)
 }
 
