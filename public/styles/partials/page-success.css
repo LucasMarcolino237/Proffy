@@ -3,32 +3,28 @@
     display: flex;
     justify-content: center;
 }
+
+title {
+    display: none;
+}
+
 #page-success {
     position: absolute;
     
-    background-image: url('/public/images/success-background.svg');
-    background: var(--color-primary);
+    background-image: url('/images/success-background.svg');
+    background-color: var(--color-primary);
 }
 
 #page-success #container {
-    
+    max-width: 30rem;
 
     position: absolute;
     color: var(--color-text-in-primary);
 
 }
 
-#page-success #container > img{
-    /* width: 100vw;
-    height: 80vh; */
-    
-}
-
 .success {
-    /* width: 60%;
-    height: 50%; */
-
-    position: absolute;
+    display: inline;
 }
 
 .success img {
@@ -36,9 +32,16 @@
 }
 
 .success-message {
-    position: absolute;
-
-    display: block;
+    display: inline;
     
 }
 
+.success-message p {
+    text-align: center;
+}
+
+@media (min-width:700px) {
+    #page-success #container {
+        max-width: 50rem;
+    }
+}
